@@ -1,0 +1,21 @@
+{
+  "name": "vivero-site",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check_links.mjs",
+    "preview": "astro preview",
+    "astro": "astro",
+    "qr": "node scripts/make_qr.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.4.13"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

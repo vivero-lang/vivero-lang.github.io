@@ -1,0 +1,38 @@
+/* Vivero design tokens. Forest greens, glasshouse glass; kept far from Duolingo lime (#58CC02). */
+:root {
+  --canopy: #0F3D2E;
+  --fern: #1F5A3F;
+  --seedling: #2F6B48;
+  --moss: #3E7A55;
+  --sage: #A9C8B0;
+  --mist: #E8EFE9;
+  --ground: #F3F5F0;
+  --copper: #B5703A;
+
+  --bg: var(--ground);
+  --fg: #14261E;
+  --muted: #4E6357;
+  --line: #C9D7CD;
+  --pane: rgba(255, 255, 255, 0.55);
+  --pane-border: rgba(15, 61, 46, 0.18);
+  --link: var(--seedling);
+
+  /* logo roles (light) */
+  --m-ink: var(--canopy); --m-glass: var(--sage); --m-leaf: var(--seedling); --m-bg: var(--ground);
+
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --osage: 'Noto Sans Osage', 'Segoe UI Historic', 'Gadugi', sans-serif;
+
+  --step-0: 1rem; --step-1: 1.25rem; --step-2: 1.6rem; --step-3: clamp(2rem, 4.5vw, 3rem); --step-4: clamp(2.4rem, 6.5vw, 4.4rem);
+  --radius: 6px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0B1A14; --fg: #E3EDE5; --muted: #9DB3A5; --line: #24402F;
+    --pane: rgba(169, 200, 176, 0.08); --pane-border: rgba(169, 200, 176, 0.22); --link: #8CC79B;
+    --m-ink: #E3EDE5; --m-glass: #6F9C80; --m-leaf: #8CC79B; --m-bg: var(--canopy);
+    color-scheme: dark;
+  }
+}

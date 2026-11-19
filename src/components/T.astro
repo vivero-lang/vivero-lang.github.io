@@ -1,0 +1,7 @@
+---
+// Renders a copy string; unfilled [RCR TO WRITE: …] slots get a visible hatched marker.
+interface Props { text: string }
+const { text } = Astro.props;
+const isTodo = text.startsWith('[RCR TO WRITE');
+---
+{isTodo ? <span class="todo">{text}</span> : <Fragment>{text}</Fragment>}

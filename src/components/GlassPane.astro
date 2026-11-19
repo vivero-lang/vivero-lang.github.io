@@ -1,0 +1,21 @@
+---
+interface Props { title?: string }
+const { title } = Astro.props;
+---
+<article class="pane">
+  {title && <h3>{title}</h3>}
+  <slot />
+</article>
+<style>
+  .pane {
+    background: var(--pane);
+    border: 1px solid var(--pane-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.25rem 1.4rem;
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    backdrop-filter: blur(10px) saturate(1.2);
+    min-width: 0;
+  }
+  h3 { font: 600 var(--step-1)/1.25 var(--display); margin: 0 0 .5rem; color: var(--fg); text-wrap: balance; }
+  .pane :global(p) { margin: 0; color: var(--muted); }
+</style>

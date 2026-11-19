@@ -1,0 +1,44 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import { copy, links } from '../content/copy';
+interface Props { title?: string; description?: string }
+const { title = `${copy.name} | ${copy.oneLiner}`, description = copy.oneLiner } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={copy.name} />
+    <meta property="og:description" content={description} />
+    <meta name="theme-color" content="#0F3D2E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Noto+Sans+Osage&display=swap" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="/" aria-label={`${copy.name} home`}><Logo size={34} /><span>{copy.name}</span></a>
+        <nav aria-label="Main">
+          <a href="/#how">About</a>
+          <a href="/#osage">Osage</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="foot">
+      <div class="foot-inner">
+        <span class="brand small"><Logo size={22} /><span>{copy.name}</span></span>
+        <span>{copy.oneLiner}</span>
+        <a href={links.mailto}>Email us</a>
+        <a href="/press/">Press &amp; QR</a>
+      </div>
+    </footer>
+  </body>
+</html>

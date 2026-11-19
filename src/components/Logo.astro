@@ -1,0 +1,15 @@
+---
+// Inlines the chosen mark (src/assets/logo.svg) with its colours mapped to theme tokens,
+// so the same file works on light, dark and the canopy hero. Swap logo.svg to change the mark.
+import raw from '../assets/logo.svg?raw';
+interface Props { size?: number; label?: string }
+const { size = 40, label = 'Vivero' } = Astro.props;
+const svg = raw
+  .replaceAll('#0F3D2E', 'var(--m-ink)')
+  .replaceAll('#A9C8B0', 'var(--m-glass)')
+  .replaceAll('#2F6B48', 'var(--m-leaf)')
+  .replaceAll('#F3F5F0', 'var(--m-bg)')
+  .replace('<svg ', `<svg width="${size}" height="${size}" role="img" aria-label="${label}" `);
+---
+<span class="logo" set:html={svg} />
+<style>.logo{display:inline-flex;line-height:0}</style>
