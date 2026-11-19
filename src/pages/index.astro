@@ -4,7 +4,12 @@ import Logo from '../components/Logo.astro';
 import GlassPane from '../components/GlassPane.astro';
 import Mullions from '../components/Mullions.astro';
 import T from '../components/T.astro';
-import { copy, links, team } from '../content/copy';
+import { copy, links, team, has, SHOW_TODOS } from '../content/copy';
+const show = (s: string) => SHOW_TODOS || has(s);
+const showHow = show(copy.howItGrows.heading);
+const showOsage = show(copy.osage.heading);
+const showWord = show(copy.osage.word.script);
+const showBeyond = show(copy.beyond.heading);
 ---
 <Base>
   <section class="hero">
@@ -21,38 +26,38 @@ import { copy, links, team } from '../content/copy';
     </div>
   </section>
 
-  <section id="how" class="wrap block">
+  {showHow && <section id="how" class="wrap block">
     <h2><T text={copy.howItGrows.heading} /></h2>
     <div class="panes">
       {copy.howItGrows.panes.map((p) => (
         <GlassPane title={p.title}><p><T text={p.body} /></p></GlassPane>
       ))}
     </div>
-  </section>
+  </section>}
 
-  <section id="osage" class="wrap block osage">
-    <div class="word">
+  {showOsage && <section id="osage" class="wrap block osage">
+    {showWord && <div class="word">
       <span class="script" lang="osa"><T text={copy.osage.word.script} /></span>
       <span class="latin"><T text={copy.osage.word.latin} /></span>
       <span class="gloss"><T text={copy.osage.word.gloss} /></span>
-    </div>
+    </div>}
     <div class="osage-text">
       <h2><T text={copy.osage.heading} /></h2>
       <p><T text={copy.osage.body} /></p>
       <a class="text-link" href={links.translator} target="_blank" rel="noopener">{copy.osage.translatorLabel} ↗</a>
     </div>
-  </section>
+  </section>}
 
-  <section class="wrap block">
+  {showBeyond && <section class="wrap block">
     <h2><T text={copy.beyond.heading} /></h2>
     <p class="measure"><T text={copy.beyond.body} /></p>
-  </section>
+  </section>}
 
   <section id="contact" class="contact">
     <div class="wrap contact-inner">
       <div>
-        <h2><T text={copy.contact.heading} /></h2>
-        <p><T text={copy.contact.body} /></p>
+        {show(copy.contact.heading) && <h2><T text={copy.contact.heading} /></h2>}
+        {show(copy.contact.body) && <p><T text={copy.contact.body} /></p>}
         <a class="btn btn-primary" href={links.mailto}>{copy.contact.button}</a>
       </div>
       <ul class="team">

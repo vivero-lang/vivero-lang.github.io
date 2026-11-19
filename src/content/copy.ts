@@ -3,6 +3,11 @@
 // source. Every other block is a visible [RCR TO WRITE: …] slot. Claude does not fill these.
 
 export const TODO = (what: string) => `[RCR TO WRITE: ${what}]`;
+export const isTodo = (s: string) => s.startsWith('[RCR TO WRITE');
+export const has = (s: string) => !isTodo(s);
+// Live-site default (Rodrigo 2026-11-19: "Push now, hide the slots"): unfilled sections are not rendered.
+// Set true locally to see every slot while writing.
+export const SHOW_TODOS = false;
 
 export const copy = {
   name: 'Vivero',
