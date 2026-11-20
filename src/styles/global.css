@@ -31,7 +31,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; 
   font: 600 1rem var(--body); text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease; }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: var(--copper); color: #fff; }
-.btn-primary:hover { background: #9E5F2E; }
+.btn-primary:hover { background: #8A5226; }
 .btn-glass { background: rgba(232, 239, 233, 0.12); color: #E3EDE5; border-color: rgba(232, 239, 233, 0.4);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .btn-glass:hover { background: rgba(232, 239, 233, 0.2); }

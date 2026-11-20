@@ -7,7 +7,7 @@
   --sage: #A9C8B0;
   --mist: #E8EFE9;
   --ground: #F3F5F0;
-  --copper: #B5703A;
+  --copper: #9E5F2E;  /* white text 5.1:1 (was #B5703A, 3.9:1) */
 
   --bg: var(--ground);
   --fg: #14261E;
